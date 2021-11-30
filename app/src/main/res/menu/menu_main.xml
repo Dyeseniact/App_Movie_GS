@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.app_movie_gs.ui.MainActivity">
+    <item
+        android:id="@+id/item_playingNow"
+        android:orderInCategory="100"
+        android:title="@string/playingNow"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/item_mostPopular"
+        android:orderInCategory="100"
+        android:title="@string/popular"
+        app:showAsAction="never" />
+</menu>
