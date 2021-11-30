@@ -11,10 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App_Movie_GS">
+        <activity android:name=".ui.VideoActivity"></activity>
         <activity
             android:name=".ui.DetailActivity"
             android:label="@string/title_activity_detail"
-            android:theme="@style/Theme.App_Movie_GS.NoActionBar"></activity>
+            android:theme="@style/Theme.App_Movie_GS.NoActionBar" />
         <activity
             android:name=".ui.MainActivity"
             android:label="@string/app_name"

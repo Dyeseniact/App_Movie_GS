@@ -2,6 +2,7 @@ package com.example.app_movie_gs.retrofit
 
 import com.example.app_movie_gs.model.DetailResponse
 import com.example.app_movie_gs.model.MovieResponse
+import com.example.app_movie_gs.model.VideoResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -17,5 +18,8 @@ interface ApiEndPoint {
 
     @GET("movie/{movie_id}")
     fun getMovieDetail(@Path("movie_id") movie_id: Int, @Query("api_key") api_key: String): Call<DetailResponse>
+
+    @GET("movie/{movie_id}/videos")
+    fun getMovieVideo(@Path("movie_id") movie_id: Int, @Query("api_key") api_key: String): Call<VideoResponse>
 
 }

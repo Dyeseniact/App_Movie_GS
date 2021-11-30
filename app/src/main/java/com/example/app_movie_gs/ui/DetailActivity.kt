@@ -1,5 +1,6 @@
 package com.example.app_movie_gs.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +11,6 @@ import com.example.app_movie_gs.model.DetailResponse
 import com.example.app_movie_gs.retrofit.ApiServices
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail.*
-import kotlinx.android.synthetic.main.adapter_main.view.*
 import kotlinx.android.synthetic.main.content_detail.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,6 +29,7 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupView()
+        setupListener()
 
 
 
@@ -40,11 +41,16 @@ class DetailActivity : AppCompatActivity() {
     }
     private fun setupView(){
         setSupportActionBar(findViewById(R.id.toolbar))
-        binding.toolbarLayout.title = title
 
         supportActionBar!!.title = ""
         supportActionBar!!.hide()
         //supportActionBar!!.setDisplayHomeAsUpEnabled(false)
+    }
+
+    private fun setupListener() {
+        fab_play.setOnClickListener {
+            startActivity(Intent(applicationContext, VideoActivity::class.java))
+        }
     }
 
     private fun getMovieDetail(){
