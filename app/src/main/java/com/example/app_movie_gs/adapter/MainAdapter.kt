@@ -2,6 +2,7 @@ package com.example.app_movie_gs.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.OrientationEventListener
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -11,7 +12,7 @@ import com.example.app_movie_gs.model.MovieModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.adapter_main.view.*
 
-class MainAdapter(var movies: ArrayList<MovieModel>): RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+class MainAdapter(var movies: ArrayList<MovieModel>, var listener: OnAdapterListener): RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
     private val TAG: String = "MainAdapter"
 
@@ -42,6 +43,11 @@ class MainAdapter(var movies: ArrayList<MovieModel>): RecyclerView.Adapter<MainA
             .placeholder(R.drawable.placeholder_portrait)
             .error(R.drawable.placeholder_portrait_error)
             .into(holder.view.img_movie);
+
+        holder.view.img_movie.setOnClickListener{
+            listener.onClick(movie)
+
+        }
     }
 
     override fun getItemCount() = movies.size
@@ -50,5 +56,9 @@ class MainAdapter(var movies: ArrayList<MovieModel>): RecyclerView.Adapter<MainA
         movies.clear()
         movies.addAll(newMovies)
         notifyDataSetChanged()
+    }
+
+    interface OnAdapterListener{
+        fun onClick(movie: MovieModel)
     }
 }

@@ -1,5 +1,6 @@
 package com.example.app_movie_gs.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.google.android.material.snackbar.Snackbar
@@ -14,6 +15,7 @@ import com.example.app_movie_gs.R
 import com.example.app_movie_gs.adapter.MainAdapter
 import com.example.app_movie_gs.databinding.ActivityMainBinding
 import com.example.app_movie_gs.model.Constant
+import com.example.app_movie_gs.model.MovieModel
 import com.example.app_movie_gs.model.MovieResponse
 import com.example.app_movie_gs.retrofit.ApiServices
 import kotlinx.android.synthetic.main.content_main.*
@@ -48,7 +50,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        mainAdapter = MainAdapter(arrayListOf())
+        mainAdapter = MainAdapter(arrayListOf(), object : MainAdapter.OnAdapterListener{
+            override fun onClick(movie: MovieModel) {
+                Constant.MOVIE_ID = movie.id!!
+                Constant.MOVIE_TITLE = movie.title!!
+                startActivity(Intent(applicationContext, DetailActivity::class.java))
+            }
+
+        })
         recyclerView_movies.apply {
             layoutManager = GridLayoutManager(context, 2)
             adapter = mainAdapter

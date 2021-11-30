@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.app_movie_gs">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,14 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_Movie_GS">
         <activity
+            android:name=".ui.DetailActivity"
+            android:label="@string/title_activity_detail"
+            android:theme="@style/Theme.App_Movie_GS.NoActionBar"></activity>
+        <activity
             android:name=".ui.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.App_Movie_GS.NoActionBar"
-
-        />
-        <activity
-            android:name=".ui.Splashscreen"
-            >
+            android:theme="@style/Theme.App_Movie_GS.NoActionBar" />
+        <activity android:name=".ui.Splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

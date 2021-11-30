@@ -5,7 +5,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val BASE_URL = "https://api.themoviedb.org/3/movie/"
+const val BASE_URL = "https://api.themoviedb.org/3/"
 
 class ApiServices {
     val endPoint: ApiEndPoint
